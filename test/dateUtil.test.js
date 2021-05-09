@@ -202,7 +202,7 @@ describe("epocSecToUtc", () => {
     expect(dateUtil.epocSecToUtc(sec)).toBe(expected);
   });
   it("エポックa秒は、null であること。", () => {
-    const sec = 'a';
+    const sec = "a";
     expect(dateUtil.epocSecToUtc(sec)).toBeNull();
   });
 });
