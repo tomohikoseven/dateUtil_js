@@ -206,3 +206,59 @@ describe("epocSecToUtc", () => {
     expect(dateUtil.epocSecToUtc(sec)).toBeNull();
   });
 });
+
+describe("epocMilliSecToUtc", () => {
+  it("エポック1ミリ秒は、19700101 000000.001 であること。", () => {
+    const millisec = 1;
+    const expected = "19700101 000000.001";
+    expect(dateUtil.epocMilliSecToUtc(millisec)).toBe(expected);
+  });
+});
+
+describe("utcToEpocSec", () => {
+  it("19700101 000001 はエポック1秒であること。", () => {
+    const utc = "19700101 000001";
+    const expected = 1;
+    expect(dateUtil.utcToEpocSec(utc)).toBe(expected);
+  });
+  it("日付不正 はnullが返ってくること。", () => {
+    const utc = "abc";
+    expect(dateUtil.utcToEpocSec(utc)).toBeNull();
+  });
+});
+
+describe("utcToEpocSec", () => {
+  it("19700101 000000.001 はエポック1ミリ秒であること。", () => {
+    const utc = "19700101 000000.001";
+    const expected = 1;
+    expect(dateUtil.utcToEpocMilliSec(utc)).toBe(expected);
+  });
+  it("日付不正 はnullが返ってくること。", () => {
+    const utc = "abc";
+    expect(dateUtil.utcToEpocMilliSec(utc)).toBeNull();
+  });
+});
+
+describe("utcToJst", () => {
+  it("UTC：19700101 000000 は日本時間では 19700101 090000となること。", () => {
+    const utc = "19700101 000000";
+    const expected = "19700101 090000";
+    expect(dateUtil.utcToJst(utc)).toBe(expected);
+  });
+  it("UTC：不正日付 は null となること。", () => {
+    const utc = "abc";
+    expect(dateUtil.utcToJst(utc)).toBeNull();
+  });
+});
+
+describe("jstToUtc", () => {
+  it("JST：19700101 090000 は日本時間では 19700101 000000となること。", () => {
+    const jst = "19700101 090000";
+    const expected = "19700101 000000";
+    expect(dateUtil.jstToUtc(jst)).toBe(expected);
+  });
+  it("JST：不正日付 は null となること。", () => {
+    const jst = "abc";
+    expect(dateUtil.jstToUtc(jst)).toBeNull();
+  });
+});
