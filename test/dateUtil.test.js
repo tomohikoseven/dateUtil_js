@@ -195,47 +195,47 @@ describe("diffDays", () => {
   });
 });
 
-describe("epocSecToUtc", () => {
+describe("epochSecToUtc", () => {
   it("エポック1秒は、19700101 000001 であること。", () => {
     const sec = 1;
     const expected = "19700101 000001";
-    expect(dateUtil.epocSecToUtc(sec)).toBe(expected);
+    expect(dateUtil.epochSecToUtc(sec)).toBe(expected);
   });
   it("エポックa秒は、null であること。", () => {
     const sec = "a";
-    expect(dateUtil.epocSecToUtc(sec)).toBeNull();
+    expect(dateUtil.epochSecToUtc(sec)).toBeNull();
   });
 });
 
-describe("epocMilliSecToUtc", () => {
+describe("epochMilliSecToUtc", () => {
   it("エポック1ミリ秒は、19700101 000000.001 であること。", () => {
     const millisec = 1;
     const expected = "19700101 000000.001";
-    expect(dateUtil.epocMilliSecToUtc(millisec)).toBe(expected);
+    expect(dateUtil.epochMilliSecToUtc(millisec)).toBe(expected);
   });
 });
 
-describe("utcToEpocSec", () => {
+describe("utcToEpochSec", () => {
   it("19700101 000001 はエポック1秒であること。", () => {
     const utc = "19700101 000001";
     const expected = 1;
-    expect(dateUtil.utcToEpocSec(utc)).toBe(expected);
+    expect(dateUtil.utcToEpochSec(utc)).toBe(expected);
   });
   it("日付不正 はnullが返ってくること。", () => {
     const utc = "abc";
-    expect(dateUtil.utcToEpocSec(utc)).toBeNull();
+    expect(dateUtil.utcToEpochSec(utc)).toBeNull();
   });
 });
 
-describe("utcToEpocSec", () => {
+describe("utcToEpochSec", () => {
   it("19700101 000000.001 はエポック1ミリ秒であること。", () => {
     const utc = "19700101 000000.001";
     const expected = 1;
-    expect(dateUtil.utcToEpocMilliSec(utc)).toBe(expected);
+    expect(dateUtil.utcToEpochMilliSec(utc)).toBe(expected);
   });
   it("日付不正 はnullが返ってくること。", () => {
     const utc = "abc";
-    expect(dateUtil.utcToEpocMilliSec(utc)).toBeNull();
+    expect(dateUtil.utcToEpochMilliSec(utc)).toBeNull();
   });
 });
 
