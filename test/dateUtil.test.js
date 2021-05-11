@@ -227,7 +227,7 @@ describe("utcToEpochSec", () => {
   });
 });
 
-describe("utcToEpochSec", () => {
+describe("utcToEpochMilliSec", () => {
   it("19700101 000000.001 はエポック1ミリ秒であること。", () => {
     const utc = "19700101 000000.001";
     const expected = 1;
