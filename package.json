@@ -1,7 +1,7 @@
 {
   "name": "03_dateutil",
   "version": "1.0.0",
-  "description": "in 基準日 YYYYMMDD, 生年月日 YYYYMMDD  \r out 満年齢",
+  "description": "dateUtil",
   "main": "index.js",
   "directories": {
     "lib": "lib"
