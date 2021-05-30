@@ -7,6 +7,11 @@ describe("calcAge", () => {
     const birthday = "20210101";
     expect(dateUtil.calcAge(base, birthday)).toBe(0);
   });
+  it("生年月日19830807で、基準日20200807の場合、37であること。", () => {
+    const birthday = "19830807";
+    const base = "20200807";
+    expect(dateUtil.calcAge(base, birthday)).toBe(37);
+  });
   it("基準日が日付でない場合、nullであること。", () => {
     const base = "aaa";
     const birthday = "20210101";
@@ -16,6 +21,22 @@ describe("calcAge", () => {
     const base = "20210101";
     const birthday = "2021bbb";
     expect(dateUtil.calcAge(base, birthday)).toBeNull();
+  });
+  // うるう年
+  it("生年月日20200229で、基準日20240229の場合、4であること。", () => {
+    const birthday = "20200229";
+    const base = "20240229";
+    expect(dateUtil.calcAge(base, birthday)).toBe(4);
+  });
+  it("生年月日20200229で、基準日20240228の場合、3であること。", () => {
+    const birthday = "20200229";
+    const base = "20240228";
+    expect(dateUtil.calcAge(base, birthday)).toBe(3);
+  });
+  it("生年月日20200301で、基準日20240229の場合、3であること。", () => {
+    const birthday = "20200301";
+    const base = "20240229";
+    expect(dateUtil.calcAge(base, birthday)).toBe(3);
   });
 });
 
